@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taskflow — Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header__brand">
+        <span class="header__logo" aria-hidden="true">✦</span>
+        <h1>Taskflow</h1>
+      </div>
+      <p class="header__tagline">Stay focused. One task at a time.</p>
+    </header>
+
+    <main class="main">
+      <form class="add-form" id="add-form" autocomplete="off">
+        <input
+          type="text"
+          id="task-input"
+          class="add-form__input"
+          placeholder="What needs to be done?"
+          maxlength="200"
+          aria-label="New task"
+        />
+        <button type="submit" class="add-form__btn" aria-label="Add task">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <section class="panel" aria-live="polite">
+        <ul class="task-list" id="task-list"></ul>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-state__icon" aria-hidden="true">☁</div>
+          <p class="empty-state__title">No tasks yet</p>
+          <p class="empty-state__text">Add something above to get started.</p>
+        </div>
+
+        <footer class="toolbar" id="toolbar" hidden>
+          <span class="toolbar__count" id="task-count">0 items left</span>
+          <nav class="toolbar__filters" role="tablist" aria-label="Filter tasks">
+            <button type="button" class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button type="button" class="filter-btn" data-filter="active" role="tab" aria-selected="false">Active</button>
+            <button type="button" class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Done</button>
+          </nav>
+          <button type="button" class="toolbar__clear" id="clear-completed">Clear completed</button>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
